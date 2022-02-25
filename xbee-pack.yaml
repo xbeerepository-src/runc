@@ -16,11 +16,12 @@ provision:
   - url:
       from: https://github.com/opencontainers/runc/archive/refs/tags/v{% version %}.tar.gz
       todir: "{% xbeeSrc %}"
+  - folder: "{% xbeeOut %}/usr"
 
 build:
   - shell:
       cmds:
         - make
-        - mv runc {% xbeeOut %}
+        - mv runc {% xbeeOut %}/usr
       directory: "{% xbeeSrc %}/runc-{% version %}"
 
